@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  MCRuntime
+//  MCJSActive
 //
-//  Created by marco chen on 2016/12/1.
+//  Created by marco chen on 2016/12/2.
 //  Copyright © 2016年 marco chen. All rights reserved.
 //
 
