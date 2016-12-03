@@ -163,10 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				417F56C31DF2DC2F00443060 /* MCWebBridgeNative.h */,
-				417F56C41DF2DC2F00443060 /* MCRuntimeKeyValue.h */,
-				417F56C51DF2DC2F00443060 /* MCRuntimeKeyValue.m */,
 				417F56C61DF2DC2F00443060 /* MCURLBridgeNative.h */,
 				417F56C71DF2DC2F00443060 /* MCURLBridgeNative.m */,
+				417F56C41DF2DC2F00443060 /* MCRuntimeKeyValue.h */,
+				417F56C51DF2DC2F00443060 /* MCRuntimeKeyValue.m */,
 			);
 			path = WebBridgeNative;
 			sourceTree = "<group>";
@@ -554,6 +554,7 @@
 				417F56BB1DF2DBEE00443060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		417F56BC1DF2DBEE00443060 /* Build configuration list for PBXNativeTarget "WebBridgeNativeExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +563,7 @@
 				417F56BE1DF2DBEE00443060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		417F56BF1DF2DBEE00443060 /* Build configuration list for PBXNativeTarget "WebBridgeNativeExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +572,7 @@
 				417F56C11DF2DBEE00443060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

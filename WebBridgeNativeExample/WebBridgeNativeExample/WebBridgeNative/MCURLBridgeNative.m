@@ -15,7 +15,16 @@ typedef enum : NSUInteger {
 }ObjType;
 
 @implementation MCURLBridgeNative
-
++ (BOOL)checkScheme:(NSURLRequest *)request {
+    return [request.URL.scheme isEqualToString:MCScheme];
+}
++ (BOOL)checkHostisEquelVc:(NSURLRequest *)request {
+    return [[[NSURLComponents alloc]initWithString:request.URL.absoluteString].host isEqualToString:MCHostVc];
+}
++ (BOOL)checkHostisEquelFunc:(NSURLRequest *)request {
+    return [[[NSURLComponents alloc]initWithString:request.URL.absoluteString].host isEqualToString:MCHostFunc];
+}
+#pragma mark - find param
 + (id)SeparatedByqueryItems:(NSURLComponents *)urlComponents withType:(ObjType)type {
     NSMutableArray * tempArr = [NSMutableArray array];
     NSMutableDictionary * tempDict = [NSMutableDictionary dictionary];
@@ -104,6 +113,7 @@ typedef enum : NSUInteger {
     }
     return nil;
 }
+#pragma mark - executeFunc
 + (void)MC_msgSendFuncRequestURL:(NSURLRequest *)request withReceiver:(id)receiver {
     NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
     NSDictionary * data = [self SeparatedByUrlItems:urlComponents withType:ObjTypeDict];
@@ -120,7 +130,7 @@ typedef enum : NSUInteger {
         };
     }
 }
-
+#pragma mark - showViewController
 + (id)MC_getViewControllerRequestURL:(NSURLRequest *)request {
     NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
     NSDictionary * data = [self SeparatedByqueryItemsDict:urlComponents];
@@ -141,6 +151,7 @@ typedef enum : NSUInteger {
 + (void)MC_presentViewControllerRequestURL:(NSURLRequest *)request {
     [[self getCurrentVC]presentViewController:[self MC_getViewControllerRequestURL:request] animated:YES completion:nil];
 }
+#pragma mark - getCurrentViewController
 + (UIViewController *)getCurrentVCFromRootViewController:(UIViewController *)rootVC
 {
     UIViewController *currentVC = rootVC;

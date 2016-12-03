@@ -11,6 +11,9 @@
 
 #define MCFunc @"func"
 #define MCClass @"class"
+#define MCHostFunc @"mcfunc"
+#define MCHostVc @"mcvc"
+#define MCScheme @"mc"
 
 #endif /* MCRuntime_h */
 #import "MCRuntimeKeyValue.h"

@@ -30,12 +30,12 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    //mc://mcvc?class=TestViewController&dataString=MCstring&dataInteger=123"
-    if ([request.URL.scheme isEqualToString:@"mc"]) {
-        NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
-        if ([urlComponents.host isEqualToString:@"mcvc"]) {
+    if ([MCURLBridgeNative checkScheme:request]) {
+        if ([MCURLBridgeNative checkHostisEqualVc:request]) {
+//            mc://mcvc?class=TestViewController&dataString=MCstring&dataInteger=123"
             [MCURLBridgeNative MC_pushViewControllerRequestURL:request];
         }else {
+//            mc://mcfunc?func=test:&data=MCstring
             [MCURLBridgeNative MC_msgSendFuncRequestURL:request withReceiver:self];
         }
         return NO;

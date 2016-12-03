@@ -11,6 +11,7 @@
 @interface MCRuntimeKeyValue : NSObject
 
 + (id)MC_RuntimeClassKey:(NSString *)name;
+
 + (void)MC_ObjectWithkeyValues:(NSDictionary *)dict withObjectClass:(id)Vc;
 
 @end
