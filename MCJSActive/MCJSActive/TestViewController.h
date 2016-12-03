@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestViewViewController : UIViewController
+@interface TestViewController : UIViewController
 
 @property(copy, nonatomic) NSString *dataString;
 @property(assign,nonatomic) NSInteger dataInteger;

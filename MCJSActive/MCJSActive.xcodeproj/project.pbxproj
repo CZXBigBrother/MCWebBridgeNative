@@ -18,8 +18,8 @@
 		412D9C3A1DF14611004E62CD /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = 412D9C321DF14611004E62CD /* demo.html */; };
 		412D9C3C1DF14611004E62CD /* MCRuntimeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 412D9C371DF14611004E62CD /* MCRuntimeKeyValue.m */; };
 		412D9C3D1DF14611004E62CD /* MCRuntimeURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 412D9C391DF14611004E62CD /* MCRuntimeURL.m */; };
-		412D9C411DF146C8004E62CD /* TestViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412D9C3F1DF146C8004E62CD /* TestViewViewController.m */; };
-		412D9C421DF146C8004E62CD /* TestViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412D9C401DF146C8004E62CD /* TestViewViewController.xib */; };
+		412D9C411DF146C8004E62CD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 412D9C3F1DF146C8004E62CD /* TestViewController.m */; };
+		412D9C421DF146C8004E62CD /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412D9C401DF146C8004E62CD /* TestViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +62,9 @@
 		412D9C371DF14611004E62CD /* MCRuntimeKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCRuntimeKeyValue.m; sourceTree = "<group>"; };
 		412D9C381DF14611004E62CD /* MCRuntimeURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCRuntimeURL.h; sourceTree = "<group>"; };
 		412D9C391DF14611004E62CD /* MCRuntimeURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCRuntimeURL.m; sourceTree = "<group>"; };
-		412D9C3E1DF146C8004E62CD /* TestViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewViewController.h; sourceTree = "<group>"; };
-		412D9C3F1DF146C8004E62CD /* TestViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewViewController.m; sourceTree = "<group>"; };
-		412D9C401DF146C8004E62CD /* TestViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewViewController.xib; sourceTree = "<group>"; };
+		412D9C3E1DF146C8004E62CD /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		412D9C3F1DF146C8004E62CD /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		412D9C401DF146C8004E62CD /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +115,9 @@
 		412D9BFE1DF14511004E62CD /* MCJSActive */ = {
 			isa = PBXGroup;
 			children = (
-				412D9C3E1DF146C8004E62CD /* TestViewViewController.h */,
-				412D9C3F1DF146C8004E62CD /* TestViewViewController.m */,
-				412D9C401DF146C8004E62CD /* TestViewViewController.xib */,
+				412D9C3E1DF146C8004E62CD /* TestViewController.h */,
+				412D9C3F1DF146C8004E62CD /* TestViewController.m */,
+				412D9C401DF146C8004E62CD /* TestViewController.xib */,
 				412D9C321DF14611004E62CD /* demo.html */,
 				412D9C331DF14611004E62CD /* MCRuntime.h */,
 				412D9C361DF14611004E62CD /* MCRuntimeKeyValue.h */,
@@ -272,7 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412D9C421DF146C8004E62CD /* TestViewViewController.xib in Resources */,
+				412D9C421DF146C8004E62CD /* TestViewController.xib in Resources */,
 				412D9C0F1DF14511004E62CD /* LaunchScreen.storyboard in Resources */,
 				412D9C3A1DF14611004E62CD /* demo.html in Resources */,
 				412D9C0C1DF14511004E62CD /* Assets.xcassets in Resources */,
@@ -303,7 +303,7 @@
 			files = (
 				412D9C3D1DF14611004E62CD /* MCRuntimeURL.m in Sources */,
 				412D9C071DF14511004E62CD /* ViewController.m in Sources */,
-				412D9C411DF146C8004E62CD /* TestViewViewController.m in Sources */,
+				412D9C411DF146C8004E62CD /* TestViewController.m in Sources */,
 				412D9C3C1DF14611004E62CD /* MCRuntimeKeyValue.m in Sources */,
 				412D9C041DF14511004E62CD /* AppDelegate.m in Sources */,
 				412D9C011DF14511004E62CD /* main.m in Sources */,

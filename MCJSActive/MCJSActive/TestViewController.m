@@ -6,14 +6,14 @@
 //  Copyright © 2016年 marco chen. All rights reserved.
 //
 
-#import "TestViewViewController.h"
+#import "TestViewController.h"
 
-@interface TestViewViewController ()
+@interface TestViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 
 @end
 
-@implementation TestViewViewController
+@implementation TestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

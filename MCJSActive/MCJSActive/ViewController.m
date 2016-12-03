@@ -35,7 +35,6 @@
 //  mc://fun?class=TestViewViewController&dataString=MC很帅&dataInteger=123
     if ([request.URL.scheme isEqualToString:@"mc"]) {
         NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
-        NSArray * quryItems = [[urlComponents query] componentsSeparatedByString:@"&"];
         if ([urlComponents.host isEqualToString:@"mcvc"]) {
             [MCRuntimeURL MC_pushViewControllerRequestURL:request];
         }else {
