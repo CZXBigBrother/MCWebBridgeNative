@@ -5,46 +5,95 @@
 //  Created by marco chen on 2016/12/1.
 //  Copyright © 2016年 marco chen. All rights reserved.
 //
-
+#import "MCRuntime.h"
 #import "MCRuntimeURL.h"
-#import "MCRuntimeKeyValue.h"
+#import <objc/message.h>
 
-#define classProject @"class"
+typedef enum : NSUInteger {
+    ObjTypeDict = 0,
+    ObjTypeArray = 1
+}ObjType;
 
 @implementation MCRuntimeURL
 
-+ (NSArray *)SeparatedByqueryItems:(NSURLComponents *)urlComponents {
++ (id)SeparatedByqueryItems:(NSURLComponents *)urlComponents withType:(ObjType)type {
     NSMutableArray * tempArr = [NSMutableArray array];
+    NSMutableDictionary * tempDict = [NSMutableDictionary dictionary];
     if ([urlComponents respondsToSelector:@selector(queryItems)]) {
         NSArray * quryItems = [urlComponents queryItems];
         for (NSURLQueryItem * oneItem in quryItems) {
-            [tempArr addObject:@{oneItem.name:oneItem.value}];
+            switch (type) {
+                case ObjTypeDict:
+                {
+                    [tempDict setValue:oneItem.value forKey:oneItem.name];
+                }
+                    break;
+                case ObjTypeArray:
+                {
+                    [tempArr addObject:@{oneItem.name:oneItem.value}];
+                }
+                    break;
+                default:
+                    break;
+            }
         }
     }else {
-        NSArray * quryItems = [[urlComponents query] componentsSeparatedByString:@"&"];
-        for (NSString *oneItem in quryItems) {
-            NSArray *queryNameValue = [oneItem componentsSeparatedByString:@"="];
-            [tempArr addObject:@{[queryNameValue firstObject]:[queryNameValue lastObject]}];
+        switch (type) {
+            case ObjTypeDict:
+                tempDict = [self SeparatedByUrlItems:urlComponents withType:type];
+            case ObjTypeArray:
+                tempArr = [self SeparatedByUrlItems:urlComponents withType:type];
+            default:
+                break;
         }
     }
-    return tempArr;
+    switch (type) {
+        case ObjTypeDict:
+            return tempDict;
+        case ObjTypeArray:
+            return tempArr;
+        default:
+            return nil;
+            break;
+    }
+}
++ (id)SeparatedByUrlItems:(NSURLComponents *)urlComponents withType:(ObjType)type {
+    NSMutableArray * tempArr = [NSMutableArray array];
+    NSMutableDictionary * tempDict = [NSMutableDictionary dictionary];
+    NSArray * quryItems = [[urlComponents query] componentsSeparatedByString:@"&"];
+    for (NSString *oneItem in quryItems) {
+        NSArray *queryNameValue = [oneItem componentsSeparatedByString:@"="];
+        switch (type) {
+            case ObjTypeDict:
+            {
+                [tempDict setValue:[queryNameValue lastObject] forKey:[queryNameValue firstObject]];
+            }
+                break;
+            case ObjTypeArray:
+            {
+                [tempArr addObject:@{[queryNameValue firstObject]:[queryNameValue lastObject]}];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    switch (type) {
+        case ObjTypeDict:
+            return tempDict;
+        case ObjTypeArray:
+            return tempArr;
+        default:
+            return nil;
+            break;
+    }
+}
+
++ (NSArray *)SeparatedByqueryItemsArray:(NSURLComponents *)urlComponents {
+    return (NSArray *)[self SeparatedByqueryItems:urlComponents withType:ObjTypeArray];
 }
 + (NSDictionary *)SeparatedByqueryItemsDict:(NSURLComponents *)urlComponents {
-    NSMutableDictionary * tempArr = [NSMutableDictionary dictionary];
-    if ([urlComponents respondsToSelector:@selector(queryItems)]) {
-        NSArray * quryItems = [urlComponents queryItems];
-        for (NSURLQueryItem * oneItem in quryItems) {
-            [tempArr setValue:oneItem.value forKey:oneItem.name];
-        }
-    }else {
-        NSArray * quryItems = [[urlComponents query] componentsSeparatedByString:@"&"];
-        for (NSString *oneItem in quryItems) {
-            NSArray *queryNameValue = [oneItem componentsSeparatedByString:@"="];
-            [tempArr setValue:[queryNameValue lastObject] forKey:[queryNameValue firstObject]];
-
-        }
-    }
-    return tempArr;
+    return (NSDictionary *)[self SeparatedByqueryItems:urlComponents withType:ObjTypeDict];
 }
 
 + (NSString *)findKey:(NSString *)key withArray:(NSArray *)arr {
@@ -55,13 +104,33 @@
     }
     return nil;
 }
++ (void)MC_msgSendFuncRequestURL:(NSURLRequest *)request withReceiver:(id)receiver {
+    NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
+    NSDictionary * data = [self SeparatedByUrlItems:urlComponents withType:ObjTypeDict];
+    if ([data objectForKey:@"func"]) {
+        SEL actionSelector = NSSelectorFromString([data objectForKey:@"func"]);
+        if ([receiver respondsToSelector:actionSelector]) {
+            if (data.allKeys.count > 1) {
+                NSMutableDictionary * tempDict = [NSMutableDictionary dictionaryWithDictionary:data];
+                [tempDict removeObjectForKey:@"func"];
+                objc_msgSend(receiver,actionSelector,tempDict);
+            }else {
+                objc_msgSend(receiver,actionSelector);
+            }
+        };
+    }
+}
 
 + (id)MC_getViewControllerRequestURL:(NSURLRequest *)request {
     NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
     NSDictionary * data = [self SeparatedByqueryItemsDict:urlComponents];
-    id vc = [MCRuntimeKeyValue MC_RuntimeClassKey:[data objectForKey:classProject]];
-    [MCRuntimeKeyValue MC_ObjectWithkeyValues:data withObjectClass:vc];
-    return vc;
+    if ([data objectForKey:classProject]) {
+        id vc = [MCRuntimeKeyValue MC_RuntimeClassKey:[data objectForKey:classProject]];
+        [MCRuntimeKeyValue MC_ObjectWithkeyValues:data withObjectClass:vc];
+        return vc;
+    }else {
+        return nil;
+    }
 }
 + (void)MC_pushViewControllerRequestURL:(NSURLRequest *)request {
     if ([[[[[UIApplication sharedApplication] delegate] window] rootViewController] isKindOfClass:[UINavigationController class]]) {
@@ -69,11 +138,9 @@
         [nav pushViewController:[self MC_getViewControllerRequestURL:request] animated:YES];
     }
 }
-
 + (void)MC_presentViewControllerRequestURL:(NSURLRequest *)request {
     [[self getCurrentVC]presentViewController:[self MC_getViewControllerRequestURL:request] animated:YES completion:nil];
 }
-// 循环获取 Window 当前显示 VC
 + (UIViewController *)getCurrentVCFromRootViewController:(UIViewController *)rootVC
 {
     UIViewController *currentVC = rootVC;

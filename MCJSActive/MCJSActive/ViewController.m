@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "MCRuntime.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface ViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *webView;
@@ -30,17 +32,30 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    //mc://fun?class=TestViewViewController&dataString=MC很帅&dataInteger=123
+//  mc://fun?class=TestViewViewController&dataString=MC很帅&dataInteger=123
     if ([request.URL.scheme isEqualToString:@"mc"]) {
-        [MCRuntimeURL MC_pushViewControllerRequestURL:request];
-
-//        [MCRuntimeURL MC_presentViewControllerRequestURL:request];
-        
-//        UIViewController * vc = (UIViewController *)[MCRuntimeURL MC_getViewControllerRequestURL:request];
-//        [self.navigationController pushViewController:vc animated:YES];
+        NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
+        NSArray * quryItems = [[urlComponents query] componentsSeparatedByString:@"&"];
+        if ([urlComponents.host isEqualToString:@"mcvc"]) {
+            [MCRuntimeURL MC_pushViewControllerRequestURL:request];
+        }else {
+            [MCRuntimeURL MC_msgSendFuncRequestURL:request withReceiver:self];
+        }
         return NO;
     }
     return YES;
+}
+- (void)test {
+    [self test:nil];
+}
+- (void)test:(NSString *)data {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"执行一个方法" message:@"内容" preferredStyle:UIAlertControllerStyleAlert];
+    if (data) {
+        alert.message = [NSString stringWithFormat:@"%@",data.description];
+    }
+    [alert addAction:[UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+    NSLog(@"test");
 }
 
 @end

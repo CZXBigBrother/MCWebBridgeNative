@@ -14,3 +14,4 @@
 #import "MCRuntimeKeyValue.h"
 #import "MCRuntimeURL.h"
 
+#define classProject @"class"

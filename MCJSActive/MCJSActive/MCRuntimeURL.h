@@ -17,5 +17,5 @@
 
 + (void)MC_presentViewControllerRequestURL:(NSURLRequest *)request;
 
-+ (UIViewController *)getCurrentVC;
++ (void)MC_msgSendFuncRequestURL:(NSURLRequest *)request withReceiver:(id)receiver;
 @end
