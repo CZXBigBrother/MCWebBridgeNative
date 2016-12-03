@@ -11,6 +11,10 @@
 
 @interface MCURLBridgeNative : NSObject
 /**
+ *  知道你们懒 给你们一个全自动的方法
+ */
++ (BOOL)MC_autoExecute:(NSURLRequest *)request withReceiver:(id)receiver;
+/**
  *  创建并获取Controller对象
  */
 + (id)MC_getViewControllerRequestURL:(NSURLRequest *)request;
@@ -30,13 +34,14 @@
 /**
  *  判断scheme协议是否和设定的相同
  */
-+ (BOOL)checkScheme:(NSURLRequest *)request;
++ (BOOL)MC_checkScheme:(NSURLRequest *)request;
 /**
  *  判断host是不是获取controller
  */
-+ (BOOL)checkHostisEqualVc:(NSURLRequest *)request;
++ (BOOL)MC_checkHostisEqualVc:(NSURLRequest *)request;
 /**
  *  判断host是不是获取function
  */
-+ (BOOL)checkHostisEqualFunc:(NSURLRequest *)request;
++ (BOOL)MC_checkHostisEqualFunc:(NSURLRequest *)request;
+
 @end

@@ -30,16 +30,17 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([MCURLBridgeNative checkScheme:request]) {
-        if ([MCURLBridgeNative checkHostisEqualVc:request]) {
-//            mc://mcvc?class=TestViewController&dataString=MCstring&dataInteger=123"
-            [MCURLBridgeNative MC_pushViewControllerRequestURL:request];
-        }else {
-//            mc://mcfunc?func=test:&data=MCstring
-            [MCURLBridgeNative MC_msgSendFuncRequestURL:request withReceiver:self];
-        }
-        return NO;
-    }
+    return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
+//    if ([MCURLBridgeNative MC_checkScheme:request]) {
+//        if ([MCURLBridgeNative MC_checkHostisEqualVc:request]) {
+////            mc://mcvc?class=TestViewController&dataString=MCstring&dataInteger=123"
+//            [MCURLBridgeNative MC_pushViewControllerRequestURL:request];
+//        }else {
+////            mc://mcfunc?func=test:&data=MCstring
+//            [MCURLBridgeNative MC_msgSendFuncRequestURL:request withReceiver:self];
+//        }
+//        return NO;
+//    }
     return YES;
 }
 - (void)test {
@@ -52,6 +53,5 @@
     }
     [alert addAction:[UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
-    NSLog(@"test");
 }
 @end

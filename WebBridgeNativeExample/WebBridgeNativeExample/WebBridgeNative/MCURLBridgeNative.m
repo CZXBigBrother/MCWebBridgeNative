@@ -15,13 +15,27 @@ typedef enum : NSUInteger {
 }ObjType;
 
 @implementation MCURLBridgeNative
-+ (BOOL)checkScheme:(NSURLRequest *)request {
+#pragma mark - auto check execute func 
++ (BOOL)MC_autoExecute:(NSURLRequest *)request withReceiver:(id)receiver {
+    if ([MCURLBridgeNative MC_checkScheme:request]) {
+        if ([self MC_checkHostisEqualVc:request]) {
+            [self MC_pushViewControllerRequestURL:request];
+            return NO;
+        }else if([self MC_checkHostisEqualFunc:request]){
+            [self MC_msgSendFuncRequestURL:request withReceiver:receiver];
+            return NO;
+        }
+    }
+    return YES;
+}
+#pragma mark - check url
++ (BOOL)MC_checkScheme:(NSURLRequest *)request {
     return [request.URL.scheme isEqualToString:MCScheme];
 }
-+ (BOOL)checkHostisEquelVc:(NSURLRequest *)request {
++ (BOOL)MC_checkHostisEqualVc:(NSURLRequest *)request {
     return [[[NSURLComponents alloc]initWithString:request.URL.absoluteString].host isEqualToString:MCHostVc];
 }
-+ (BOOL)checkHostisEquelFunc:(NSURLRequest *)request {
++ (BOOL)MC_checkHostisEqualFunc:(NSURLRequest *)request {
     return [[[NSURLComponents alloc]initWithString:request.URL.absoluteString].host isEqualToString:MCHostFunc];
 }
 #pragma mark - find param
