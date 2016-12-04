@@ -14,6 +14,7 @@
 #define MCHostFunc @"mcfunc"
 #define MCHostVc @"mcvc"
 #define MCScheme @"mc"
+#define MCShowType @"showtype"
 
 #endif /* MCRuntime_h */
 #import "MCRuntimeKeyValue.h"

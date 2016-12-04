@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
 + (BOOL)MC_autoExecute:(NSURLRequest *)request withReceiver:(id)receiver {
     if ([MCURLBridgeNative MC_checkScheme:request]) {
         if ([self MC_checkHostisEqualVc:request]) {
-            [self MC_pushViewControllerRequestURL:request];
+            [self MC_showViewControllerRequestURL:request];
             return NO;
         }else if([self MC_checkHostisEqualFunc:request]){
             [self MC_msgSendFuncRequestURL:request withReceiver:receiver];
@@ -160,11 +160,23 @@ typedef enum : NSUInteger {
     if ([[[[[UIApplication sharedApplication] delegate] window] rootViewController] isKindOfClass:[UINavigationController class]]) {
         UINavigationController * nav = (UINavigationController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
         [nav pushViewController:[self MC_getViewControllerRequestURL:request] animated:YES];
+    }else {
+        [self MC_presentViewControllerRequestURL:request];
     }
 }
 + (void)MC_presentViewControllerRequestURL:(NSURLRequest *)request {
-    [[self getCurrentVC]presentViewController:[self MC_getViewControllerRequestURL:request] animated:YES completion:nil];
+    [[self getCurrentVC] presentViewController:[self MC_getViewControllerRequestURL:request] animated:YES completion:nil];
 }
++ (void)MC_showViewControllerRequestURL:(NSURLRequest *)request {
+    NSURLComponents *urlComponents = [[NSURLComponents alloc]initWithString:request.URL.absoluteString];
+    NSDictionary * data = [self SeparatedByqueryItemsDict:urlComponents];
+    if ([[data objectForKey:MCShowType]isEqualToString:@"present"]) {
+        [self MC_presentViewControllerRequestURL:request];
+    }else {
+        [self MC_pushViewControllerRequestURL:request];
+    }
+}
+
 #pragma mark - getCurrentViewController
 + (UIViewController *)getCurrentVCFromRootViewController:(UIViewController *)rootVC
 {
@@ -176,7 +188,6 @@ typedef enum : NSUInteger {
         
         return [self getCurrentVCFromRootViewController:currentVC];
     }
-    
     if (currentVC.presentedViewController) {
         currentVC = currentVC.presentedViewController;
         

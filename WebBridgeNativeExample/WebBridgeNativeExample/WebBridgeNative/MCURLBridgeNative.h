@@ -19,13 +19,17 @@
  */
 + (id)MC_getViewControllerRequestURL:(NSURLRequest *)request;
 /**
- *  将创建的Controller push
+ *  将创建的Controller push,如果没有navigation则执行present
  */
 + (void)MC_pushViewControllerRequestURL:(NSURLRequest *)request;
 /**
  *  将创建的Controller present
  */
 + (void)MC_presentViewControllerRequestURL:(NSURLRequest *)request;
+/**
+ *  根据showtype字段判断是push还是present,controller,如没有这个字段则执行MC_push方法
+ */
++ (void)MC_showViewControllerRequestURL:(NSURLRequest *)request;
 /**
  *  执行一个本地的方法
  */

@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import "MCWebBridgeNative.h"
+#import <JavaScriptCore/JavaScriptCore.h>
+
 
 @interface ViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *webView;
+@property (strong, nonatomic) JSContext *context;
 
 @end
 
@@ -31,18 +34,9 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
-//    if ([MCURLBridgeNative MC_checkScheme:request]) {
-//        if ([MCURLBridgeNative MC_checkHostisEqualVc:request]) {
-////            mc://mcvc?class=TestViewController&dataString=MCstring&dataInteger=123"
-//            [MCURLBridgeNative MC_pushViewControllerRequestURL:request];
-//        }else {
-////            mc://mcfunc?func=test:&data=MCstring
-//            [MCURLBridgeNative MC_msgSendFuncRequestURL:request withReceiver:self];
-//        }
-//        return NO;
-//    }
     return YES;
 }
+
 - (void)test {
     [self test:nil];
 }

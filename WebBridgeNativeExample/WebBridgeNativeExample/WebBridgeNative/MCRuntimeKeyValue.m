@@ -25,7 +25,7 @@
     }
     return [NSArray arrayWithArray:temp];
 }
-
+//这里可以改成MJExtension就可支持自定义类的赋值
 + (void)MC_ObjectWithkeyValues:(NSDictionary *)dict withObjectClass:(id)Vc {
     NSArray * arrAttr = [MCRuntimeKeyValue MCStringPropertyKey:[NSString stringWithUTF8String:object_getClassName(Vc)]];
     for (NSString * objAttr in arrAttr) {

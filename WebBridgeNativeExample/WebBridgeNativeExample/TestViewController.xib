@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPb-jj-8Kd">
-                    <rect key="frame" x="60" y="60" width="255" height="180"/>
+                    <rect key="frame" x="60" y="100" width="255" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="R1r-4r-wlm"/>
                     </constraints>
@@ -29,11 +29,25 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93D-0g-AJB">
+                    <rect key="frame" x="0.0" y="64" width="55" height="55"/>
+                    <color key="backgroundColor" red="1" green="0.36042866110801697" blue="0.45747452974319458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="FY7-AP-RAt"/>
+                        <constraint firstAttribute="height" constant="55" id="hDV-Bo-sVN"/>
+                    </constraints>
+                    <state key="normal" title="Back"/>
+                    <connections>
+                        <action selector="buttonOnClickBack:" destination="-1" eventType="touchUpInside" id="wfH-W3-EeN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="EPb-jj-8Kd" secondAttribute="trailing" constant="60" id="OJ0-gt-bwY"/>
-                <constraint firstItem="EPb-jj-8Kd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="pQ3-AF-xDR"/>
+                <constraint firstItem="93D-0g-AJB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bqv-NH-E2d"/>
+                <constraint firstItem="EPb-jj-8Kd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="pQ3-AF-xDR"/>
+                <constraint firstItem="93D-0g-AJB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yYV-0C-zN5"/>
                 <constraint firstItem="EPb-jj-8Kd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="yYm-7S-9J0"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
