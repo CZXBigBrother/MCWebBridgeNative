@@ -6,4 +6,4 @@
 #主要作者比较懒，有问题可以直接发邮件chenxingghost@gmail.com,还有待完善的地方慢慢修改
 
 
-![image]()
+![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/record.gif)
