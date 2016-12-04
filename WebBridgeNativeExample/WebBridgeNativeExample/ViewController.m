@@ -34,7 +34,6 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
-    return YES;
 }
 
 - (void)test {
