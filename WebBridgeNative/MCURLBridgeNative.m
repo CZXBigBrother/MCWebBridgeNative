@@ -15,6 +15,10 @@ typedef enum : NSUInteger {
 }ObjType;
 
 @implementation MCURLBridgeNative
++ (NSURLRequest *)MC_DESDecrypt:(NSURLRequest *)request key:(NSString *)key{
+    NSString * url = [[request.URL absoluteString]substringFromIndex:MCScheme.length + 3];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@",MCScheme,[MCEncrypt DESDecryptBase64:url key:key]]]];
+}
 #pragma mark - auto check execute func 
 + (BOOL)MC_autoExecute:(NSURLRequest *)request withReceiver:(id)receiver {
     if ([MCURLBridgeNative MC_checkScheme:request]) {

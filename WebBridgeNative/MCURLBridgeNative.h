@@ -10,10 +10,18 @@
 #import <UIKit/UIKit.h>
 
 @interface MCURLBridgeNative : NSObject
+
 /**
- *  知道你们懒 给你们一个全自动的方法
+ *  知道你们可能懒 给你们一个全自动的方法
+ *  @param request web拦截的请求
+ *  @param receiver 需要执行方法的对象
+ *  @return 返回NO说明拦截是成功,YES说明拦截失败
  */
 + (BOOL)MC_autoExecute:(NSURLRequest *)request withReceiver:(id)receiver;
+/**
+ *  返回DES解密后的Request对象
+ */
++ (NSURLRequest *)MC_DESDecrypt:(NSURLRequest *)request key:(NSString *)key;
 /**
  *  创建并获取Controller对象
  */

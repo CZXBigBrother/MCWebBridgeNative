@@ -27,11 +27,13 @@
     NSString *html = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"demo.html" ofType:nil] encoding:NSUTF8StringEncoding error:NULL];
     [self.webView loadHTMLString:html baseURL:nil];
     [self.view addSubview:self.webView];
-    
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    if ([MCURLBridgeNative MC_checkScheme:request]) {
+        return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
+    }
     return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
 }
 

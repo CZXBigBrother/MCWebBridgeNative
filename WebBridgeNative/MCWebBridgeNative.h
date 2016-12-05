@@ -19,4 +19,5 @@
 #endif /* MCRuntime_h */
 #import "MCRuntimeKeyValue.h"
 #import "MCURLBridgeNative.h"
+#import "MCEncrypt.h"
 
