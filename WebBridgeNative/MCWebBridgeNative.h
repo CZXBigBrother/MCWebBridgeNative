@@ -5,6 +5,7 @@
 //  Created by marco chen on 2016/12/1.
 //  Copyright © 2016年 marco chen. All rights reserved.
 //
+//  Copyright (c) 2016 czxghostyueqiu (http://blog.csdn.net/czxghostyueqiu，https://github.com/CZXBigBrother)
 
 #ifndef MCRuntime_h
 #define MCRuntime_h
