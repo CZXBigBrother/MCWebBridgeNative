@@ -31,9 +31,9 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([MCURLBridgeNative MC_checkScheme:request]) {
-        return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
-    }
+//    if ([MCURLBridgeNative MC_checkScheme:request]) {
+//        return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
+//    }
     return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
 }
 
