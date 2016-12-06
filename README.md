@@ -103,3 +103,23 @@ mc://mcvc?class=TestViewController&showtype=push&dataString=MCstring&dataInteger
     return YES;
 }
 ```
+#加密
+执行显示url里的内容不是很安全,特地加了加密工具,支持RSA 和 DES 加密
+已内置DES解密方法
+```
+[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"]
+```
+任何解密之后需要重新生成一个新的NSURLRequest对象
+```
+加密前:mc://mcvc?class=TestViewController&showtype=push&dataString=MCstring&dataInteger=123
+加密后:mc://j97nAm965gnrIXpHYmW+a8kNd5UpDJcuqJYyrNSlOfWR5C2gOs7LAmySYbtGFzPolyMefbL2IuSLsF1zrEbwNOEZLT7LCQ945mhWKf58hEQ=
+(协议://)协议头不要加密用来判断
+[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@",协议头,"解密后的内容"]]]
+
+```
+#示例
+```
+    if ([MCURLBridgeNative MC_checkScheme:request]) {
+        return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
+    }
+```
