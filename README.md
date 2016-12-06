@@ -42,19 +42,6 @@
  *  执行一个本地的方法
  */
 + (void)MC_msgSendFuncRequestURL:(NSURLRequest *)request withReceiver:(id)receiver;
-
-/**
- *  判断scheme协议是否和设定的相同
- */
-+ (BOOL)MC_checkScheme:(NSURLRequest *)request;
-/**
- *  判断host是不是获取controller
- */
-+ (BOOL)MC_checkHostisEqualVc:(NSURLRequest *)request;
-/**
- *  判断host是不是获取function
- */
-+ (BOOL)MC_checkHostisEqualFunc:(NSURLRequest *)request;
 ```
 Web需要对应的内容,下面这是示例
 ```
