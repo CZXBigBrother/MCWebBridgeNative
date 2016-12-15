@@ -48,4 +48,9 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [[MCJSBridgeNative shareInstance]initialize:webView withRecive:self];
+}
 @end

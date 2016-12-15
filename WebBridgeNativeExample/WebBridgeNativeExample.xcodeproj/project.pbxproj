@@ -21,6 +21,7 @@
 		41CEC3331E0241D1008E1B77 /* MCEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC32D1E0241D1008E1B77 /* MCEncrypt.m */; };
 		41CEC3341E0241D1008E1B77 /* MCRuntimeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC32F1E0241D1008E1B77 /* MCRuntimeKeyValue.m */; };
 		41CEC3351E0241D1008E1B77 /* MCURLBridgeNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */; };
+		41CEC3381E024F36008E1B77 /* MCJSBridgeNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC3371E024F36008E1B77 /* MCJSBridgeNative.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		41CEC3301E0241D1008E1B77 /* MCURLBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCURLBridgeNative.h; sourceTree = "<group>"; };
 		41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCURLBridgeNative.m; sourceTree = "<group>"; };
 		41CEC3321E0241D1008E1B77 /* MCWebBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCWebBridgeNative.h; sourceTree = "<group>"; };
+		41CEC3361E024F36008E1B77 /* MCJSBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCJSBridgeNative.h; sourceTree = "<group>"; };
+		41CEC3371E024F36008E1B77 /* MCJSBridgeNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCJSBridgeNative.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,13 +168,15 @@
 		41CEC32B1E0241D1008E1B77 /* WebBridgeNative */ = {
 			isa = PBXGroup;
 			children = (
+				41CEC3321E0241D1008E1B77 /* MCWebBridgeNative.h */,
 				41CEC32C1E0241D1008E1B77 /* MCEncrypt.h */,
 				41CEC32D1E0241D1008E1B77 /* MCEncrypt.m */,
 				41CEC32E1E0241D1008E1B77 /* MCRuntimeKeyValue.h */,
 				41CEC32F1E0241D1008E1B77 /* MCRuntimeKeyValue.m */,
 				41CEC3301E0241D1008E1B77 /* MCURLBridgeNative.h */,
 				41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */,
-				41CEC3321E0241D1008E1B77 /* MCWebBridgeNative.h */,
+				41CEC3361E024F36008E1B77 /* MCJSBridgeNative.h */,
+				41CEC3371E024F36008E1B77 /* MCJSBridgeNative.m */,
 			);
 			name = WebBridgeNative;
 			path = ../../WebBridgeNative;
@@ -321,6 +326,7 @@
 				41CEC3341E0241D1008E1B77 /* MCRuntimeKeyValue.m in Sources */,
 				417F56971DF2DBEE00443060 /* ViewController.m in Sources */,
 				417F56941DF2DBEE00443060 /* AppDelegate.m in Sources */,
+				41CEC3381E024F36008E1B77 /* MCJSBridgeNative.m in Sources */,
 				417F56911DF2DBEE00443060 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
