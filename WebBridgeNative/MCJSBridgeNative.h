@@ -12,6 +12,14 @@
 
 @interface MCJSBridgeNative : NSObject
 /**
+ *  js对象
+ */
+@property (strong, nonatomic) JSContext *context;
+/**
+ * receiver 需要执行方法的对象
+ */
+@property (weak, nonatomic) id receiver;
+/**
  *  初始化
  */
 + (id)shareInstance;
@@ -20,15 +28,6 @@
  */
 - (void)initialize:(UIWebView *)webView;
 - (void)initialize:(UIWebView *)webView withRecive:(id)receiver;
-/**
- *  js对象
- */
-@property (strong, nonatomic) JSContext *context;
-/**
- * receiver 需要执行方法的对象
- */
-@property (weak, nonatomic) id receiver;
-
 /**
  * 返回解析的JS参数
  * @param array  [JSContext currentArguments] 就是传这个,不传其他的哦~

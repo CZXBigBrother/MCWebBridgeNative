@@ -163,31 +163,4 @@ typedef enum : NSUInteger {
         [self MC_pushViewControllerRequestURL:request];
     }
 }
-
-//#pragma mark - getCurrentViewController
-//+ (UIViewController *)getCurrentVCFromRootViewController:(UIViewController *)rootVC
-//{
-//    UIViewController *currentVC = rootVC;
-//    
-//    if ([currentVC isKindOfClass:[UINavigationController class]]) {
-//        UINavigationController *nav = (UINavigationController *)currentVC;
-//        currentVC = nav.topViewController;
-//        
-//        return [self getCurrentVCFromRootViewController:currentVC];
-//    }
-//    if (currentVC.presentedViewController) {
-//        currentVC = currentVC.presentedViewController;
-//        
-//        return [self getCurrentVCFromRootViewController:currentVC];
-//    }
-//    
-//    return currentVC;
-//}
-//+ (UIViewController *)getCurrentVC
-//{
-//    UIViewController *rootVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-//    
-//    return [self getCurrentVCFromRootViewController:rootVC];
-//}
-
 @end
