@@ -10,14 +10,14 @@
 ![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/JS.gif)
 ![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/record.gif)
 知道你们懒,所以实现上面的方法只需要一行代码!是不是很爽
-JS交互部分
+##JS交互部分
 ```
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [[MCJSBridgeNative shareInstance]initialize:webView withRecive:self];
 }
 ```
-URL拼接方法
+##URL拼接方法
 ```
  -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
