@@ -18,9 +18,9 @@
 		417F56CB1DF2DD3900443060 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = 417F56CA1DF2DD3900443060 /* demo.html */; };
 		417F56CF1DF2DD4000443060 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F56CD1DF2DD4000443060 /* TestViewController.m */; };
 		417F56D01DF2DD4000443060 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417F56CE1DF2DD4000443060 /* TestViewController.xib */; };
-		41B4D2631DF51D4600AA27A0 /* MCEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B4D25D1DF51D4600AA27A0 /* MCEncrypt.m */; };
-		41B4D2641DF51D4600AA27A0 /* MCRuntimeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B4D25F1DF51D4600AA27A0 /* MCRuntimeKeyValue.m */; };
-		41B4D2651DF51D4600AA27A0 /* MCURLBridgeNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 41B4D2611DF51D4600AA27A0 /* MCURLBridgeNative.m */; };
+		41CEC3331E0241D1008E1B77 /* MCEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC32D1E0241D1008E1B77 /* MCEncrypt.m */; };
+		41CEC3341E0241D1008E1B77 /* MCRuntimeKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC32F1E0241D1008E1B77 /* MCRuntimeKeyValue.m */; };
+		41CEC3351E0241D1008E1B77 /* MCURLBridgeNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,13 +61,13 @@
 		417F56CC1DF2DD4000443060 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		417F56CD1DF2DD4000443060 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		417F56CE1DF2DD4000443060 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		41B4D25C1DF51D4600AA27A0 /* MCEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCEncrypt.h; path = ../../../WebBridgeNative/MCEncrypt.h; sourceTree = "<group>"; };
-		41B4D25D1DF51D4600AA27A0 /* MCEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCEncrypt.m; path = ../../../WebBridgeNative/MCEncrypt.m; sourceTree = "<group>"; };
-		41B4D25E1DF51D4600AA27A0 /* MCRuntimeKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCRuntimeKeyValue.h; path = ../../../WebBridgeNative/MCRuntimeKeyValue.h; sourceTree = "<group>"; };
-		41B4D25F1DF51D4600AA27A0 /* MCRuntimeKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCRuntimeKeyValue.m; path = ../../../WebBridgeNative/MCRuntimeKeyValue.m; sourceTree = "<group>"; };
-		41B4D2601DF51D4600AA27A0 /* MCURLBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCURLBridgeNative.h; path = ../../../WebBridgeNative/MCURLBridgeNative.h; sourceTree = "<group>"; };
-		41B4D2611DF51D4600AA27A0 /* MCURLBridgeNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCURLBridgeNative.m; path = ../../../WebBridgeNative/MCURLBridgeNative.m; sourceTree = "<group>"; };
-		41B4D2621DF51D4600AA27A0 /* MCWebBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCWebBridgeNative.h; path = ../../../WebBridgeNative/MCWebBridgeNative.h; sourceTree = "<group>"; };
+		41CEC32C1E0241D1008E1B77 /* MCEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCEncrypt.h; sourceTree = "<group>"; };
+		41CEC32D1E0241D1008E1B77 /* MCEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCEncrypt.m; sourceTree = "<group>"; };
+		41CEC32E1E0241D1008E1B77 /* MCRuntimeKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCRuntimeKeyValue.h; sourceTree = "<group>"; };
+		41CEC32F1E0241D1008E1B77 /* MCRuntimeKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCRuntimeKeyValue.m; sourceTree = "<group>"; };
+		41CEC3301E0241D1008E1B77 /* MCURLBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCURLBridgeNative.h; sourceTree = "<group>"; };
+		41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCURLBridgeNative.m; sourceTree = "<group>"; };
+		41CEC3321E0241D1008E1B77 /* MCWebBridgeNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCWebBridgeNative.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		417F568E1DF2DBEE00443060 /* WebBridgeNativeExample */ = {
 			isa = PBXGroup;
 			children = (
-				417F56C21DF2DC2F00443060 /* WebBridgeNative */,
+				41CEC32B1E0241D1008E1B77 /* WebBridgeNative */,
 				417F56951DF2DBEE00443060 /* ViewController.h */,
 				417F56961DF2DBEE00443060 /* ViewController.m */,
 				417F56CC1DF2DD4000443060 /* TestViewController.h */,
@@ -162,18 +162,19 @@
 			path = WebBridgeNativeExampleUITests;
 			sourceTree = "<group>";
 		};
-		417F56C21DF2DC2F00443060 /* WebBridgeNative */ = {
+		41CEC32B1E0241D1008E1B77 /* WebBridgeNative */ = {
 			isa = PBXGroup;
 			children = (
-				41B4D2621DF51D4600AA27A0 /* MCWebBridgeNative.h */,
-				41B4D25E1DF51D4600AA27A0 /* MCRuntimeKeyValue.h */,
-				41B4D25F1DF51D4600AA27A0 /* MCRuntimeKeyValue.m */,
-				41B4D2601DF51D4600AA27A0 /* MCURLBridgeNative.h */,
-				41B4D2611DF51D4600AA27A0 /* MCURLBridgeNative.m */,
-				41B4D25C1DF51D4600AA27A0 /* MCEncrypt.h */,
-				41B4D25D1DF51D4600AA27A0 /* MCEncrypt.m */,
+				41CEC32C1E0241D1008E1B77 /* MCEncrypt.h */,
+				41CEC32D1E0241D1008E1B77 /* MCEncrypt.m */,
+				41CEC32E1E0241D1008E1B77 /* MCRuntimeKeyValue.h */,
+				41CEC32F1E0241D1008E1B77 /* MCRuntimeKeyValue.m */,
+				41CEC3301E0241D1008E1B77 /* MCURLBridgeNative.h */,
+				41CEC3311E0241D1008E1B77 /* MCURLBridgeNative.m */,
+				41CEC3321E0241D1008E1B77 /* MCWebBridgeNative.h */,
 			);
-			path = WebBridgeNative;
+			name = WebBridgeNative;
+			path = ../../WebBridgeNative;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,9 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				417F56CF1DF2DD4000443060 /* TestViewController.m in Sources */,
-				41B4D2631DF51D4600AA27A0 /* MCEncrypt.m in Sources */,
-				41B4D2651DF51D4600AA27A0 /* MCURLBridgeNative.m in Sources */,
-				41B4D2641DF51D4600AA27A0 /* MCRuntimeKeyValue.m in Sources */,
+				41CEC3331E0241D1008E1B77 /* MCEncrypt.m in Sources */,
+				41CEC3351E0241D1008E1B77 /* MCURLBridgeNative.m in Sources */,
+				41CEC3341E0241D1008E1B77 /* MCRuntimeKeyValue.m in Sources */,
 				417F56971DF2DBEE00443060 /* ViewController.m in Sources */,
 				417F56941DF2DBEE00443060 /* AppDelegate.m in Sources */,
 				417F56911DF2DBEE00443060 /* main.m in Sources */,
