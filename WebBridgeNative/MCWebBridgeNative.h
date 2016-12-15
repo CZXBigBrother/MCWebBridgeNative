@@ -16,9 +16,12 @@
 #define MCHostVc @"mcvc"
 #define MCScheme @"mc"
 #define MCShowType @"showtype"
+#define MCType @"type"
 
 #endif /* MCRuntime_h */
 #import "MCRuntimeKeyValue.h"
 #import "MCURLBridgeNative.h"
+#import "MCJSBridgeNative.h"
 #import "MCEncrypt.h"
 
+#define WEAK_SELF __weak typeof(self) weakSelf = self
