@@ -41,19 +41,19 @@
 /**
  *  创建并获取Controller对象
  */
-- (id)MC_getViewControllerJSContext:(NSDictionary *)data;
++ (id)MC_getViewControllerJSContext:(NSDictionary *)data;
 /**
  *  根据showtype字段判断是push还是present,controller,如没有这个字段则执行MC_push方法
  */
-- (void)MC_showViewControllerJSContext:(NSDictionary *)data;
++ (void)MC_showViewControllerJSContext:(NSDictionary *)data;
 /**
  *  将创建的Controller push,如果没有navigation则执行present
  */
-- (void)MC_pushViewControllerJSContext:(NSDictionary *)data;
++ (void)MC_pushViewControllerJSContext:(NSDictionary *)data;
 /**
  *  将创建的Controller present
  */
-- (void)MC_presentViewControllerJSContext:(NSDictionary *)data;
++ (void)MC_presentViewControllerJSContext:(NSDictionary *)data;
 
 
 

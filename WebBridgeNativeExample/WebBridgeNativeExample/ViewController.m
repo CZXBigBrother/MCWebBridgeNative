@@ -31,10 +31,12 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-//    if ([MCURLBridgeNative MC_checkScheme:request]) {
-//        return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
-//    }
+//    全自动
     return [MCURLBridgeNative MC_autoExecute:request withReceiver:self];
+//    自定义执行
+//    if ([MCURLBridgeNative MC_checkScheme:request]) {
+//        [MCURLBridgeNative MC_pushViewControllerRequestURL:request];
+//    }
 }
 
 - (void)test {
@@ -51,6 +53,16 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+//    全自动
     [[MCJSBridgeNative shareInstance]initialize:webView withRecive:self];
+//    自定义执行
+//    self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    self.context[MCScheme] = ^() {
+//        for (JSValue * obj in [JSContext currentArguments]) {
+//            if ([obj isObject]) {
+//                [MCJSBridgeNative MC_pushViewControllerJSContext:[obj toObject]];
+//            }
+//        }
+//    };
 }
 @end

@@ -53,7 +53,7 @@
 }
 - (void)waitExecute:(NSDictionary *)data {
     if ([MCJSBridgeNative MC_checkDataisEqualVc:data]) {
-        [self MC_showViewControllerJSContext:data];
+        [MCJSBridgeNative MC_showViewControllerJSContext:data];
     }else if ([MCJSBridgeNative MC_checkDataisEqualFunc:data]) {
         [self MC_msgSendFuncJSContext:data Receiver:self.receiver];
     }
@@ -82,11 +82,11 @@
     [MCRuntimeKeyValue MC_msgSendFuncData:data withReceiver:receiver];
 }
 #pragma mark - showViewController
-- (id)MC_getViewControllerJSContext:(NSDictionary *)data {
++ (id)MC_getViewControllerJSContext:(NSDictionary *)data {
     return [MCRuntimeKeyValue MC_getViewControllerData:data];
 }
 
-- (void)MC_pushViewControllerJSContext:(NSDictionary *)data {
++ (void)MC_pushViewControllerJSContext:(NSDictionary *)data {
     if ([[[[[UIApplication sharedApplication] delegate] window] rootViewController] isKindOfClass:[UINavigationController class]]) {
         UINavigationController * nav = (UINavigationController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
         [nav pushViewController:[self MC_getViewControllerJSContext:data] animated:YES];
@@ -94,10 +94,10 @@
         [self MC_presentViewControllerJSContext:data];
     }
 }
-- (void)MC_presentViewControllerJSContext:(NSDictionary *)data {
++ (void)MC_presentViewControllerJSContext:(NSDictionary *)data {
     [[MCRuntimeKeyValue getCurrentVC] presentViewController:[self MC_getViewControllerJSContext:data] animated:YES completion:nil];
 }
-- (void)MC_showViewControllerJSContext:(NSDictionary *)data {
++ (void)MC_showViewControllerJSContext:(NSDictionary *)data {
     if ([[data objectForKey:MCShowType]isEqualToString:@"present"]) {
         [self MC_presentViewControllerJSContext:data];
     }else {
