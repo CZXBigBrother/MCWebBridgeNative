@@ -1,10 +1,5 @@
 # MCWebBridgeNative 
-
-# 利用的url拼接地址或者JS方法进行原生交互 (ps:js部分文档稍后补上)
-## 打开任意controller(不需要预埋import,不需要预埋实现方法,很方便)并且可以进行传参
-## 可以执行预埋的方法
-主要作者比较懒，有问题可以直接发邮件chenxingghost@gmail.com或者在issues提问,还有待完善的地方慢慢修改
-简书地址:http://www.jianshu.com/p/760ca42f6475
+打开任意controller(不需要预埋import,不需要预埋实现方法,很方便)并且可以进行传参,可以执行预埋的方法
 ---
 ## Examples【示例】
 ![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/JS.gif)
