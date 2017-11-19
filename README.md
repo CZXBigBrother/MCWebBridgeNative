@@ -1,12 +1,12 @@
 # MCWebBridgeNative 
 
-#利用的url拼接地址或者JS方法进行原生交互 (ps:js部分文档稍后补上)
-##打开任意controller(不需要预埋import,不需要预埋实现方法,很方便)并且可以进行传参
-##可以执行预埋的方法
+# 利用的url拼接地址或者JS方法进行原生交互 (ps:js部分文档稍后补上)
+## 打开任意controller(不需要预埋import,不需要预埋实现方法,很方便)并且可以进行传参
+## 可以执行预埋的方法
 主要作者比较懒，有问题可以直接发邮件chenxingghost@gmail.com或者在issues提问,还有待完善的地方慢慢修改
 简书地址:http://www.jianshu.com/p/760ca42f6475
 ---
-#Examples【示例】
+## Examples【示例】
 ![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/JS.gif)
 ![image](https://github.com/CZXBigBrother/MCWebBridgeNative/blob/master/Gif/record.gif)
 知道你们懒,所以实现上面的方法只需要一行代码!是不是很爽
@@ -17,7 +17,7 @@
     [[MCJSBridgeNative shareInstance]initialize:webView withRecive:self];
 }
 ```
-##URL拼接方法
+## URL拼接方法
 ```
  -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -41,7 +41,7 @@ mc://mcvc?class=TestViewController&showtype=push&dataString=MCstring&dataInteger
 * showtype字段是 MC_autoExecute:withReceiver: 和MC_showViewControllerRequestURL:方法 自动判断显示controller的方式,如何使用MC_pushViewControllerRequestURL:和MC_presentViewControllerRequestURL方法会无视这个字段
 * 第四部分后面的部分就是你们需要传输的字段,这个库会自动按照字段名对应相同名字的属性进行赋值,暂时不能支持NSArray NSDictionary NSSet 或自定义类,如果需要可以使用MJExension库替换 MC_ObjectWithkeyValues这个方法中的使用
 ---
-#JS交互部份使用方法
+## JS交互部份使用方法
 ```
 /**
  *  初始化
@@ -78,7 +78,7 @@ mc://mcvc?class=TestViewController&showtype=push&dataString=MCstring&dataInteger
  */
 + (void)MC_presentViewControllerJSContext:(NSDictionary *)data;
 ```
-#URL拼接部份使用方法
+## URL拼接部份使用方法
 ```
 /**
  *  知道你们懒 给你们一个全自动的方法
@@ -106,8 +106,8 @@ mc://mcvc?class=TestViewController&showtype=push&dataString=MCstring&dataInteger
 + (void)MC_msgSendFuncRequestURL:(NSURLRequest *)request withReceiver:(id)receiver;
 ```
 ---
-#使用示例
-##示例1 JS自定义执行push
+# 使用示例
+## 示例1 JS自定义执行push
 ```
 JS
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -123,7 +123,7 @@ JS
     };
 }
 ```
-##示例2 URL拼接自定义执行
+## 示例2 URL拼接自定义执行
 ```
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -138,7 +138,7 @@ JS
     return YES;
 }
 ```
-##示例3 URL喜欢自己创建类的朋友
+## 示例3 URL喜欢自己创建类的朋友
 ```
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -152,7 +152,7 @@ JS
     return YES;
 }
 ```
-#加密
+## 加密
 执行显示url里的内容不是很安全,特地加了加密工具,支持RSA 和 DES 加密
 已内置DES解密方法
 ```
@@ -166,7 +166,7 @@ JS
 [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@",协议头,"解密后的内容"]]]
 
 ```
-#示例
+# 示例
 ```
     if ([MCURLBridgeNative MC_checkScheme:request]) {
         return [MCURLBridgeNative MC_autoExecute:[MCURLBridgeNative MC_DESDecrypt:request key:@"mc"] withReceiver:self];
